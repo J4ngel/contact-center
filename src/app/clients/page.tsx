@@ -6,6 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Table } from "@/components/Table";
 import { filterOperations } from "../../../lib/constants/operations";
 import { ClientFilter } from "../../../lib/models/filter";
+import { createWebSocket } from "../../../lib/ws/socket";
 
 export default function ClientsPage() {
     const [clients, setClients] = useState<Client[]>([])
@@ -21,6 +22,20 @@ export default function ClientsPage() {
 
     useEffect(()=>{
         fetchClients().then(setClients)
+
+        const socket = createWebSocket((data) => {
+          if (data.type === "client_update") {
+            setClients((prev) =>
+              prev.map((client) =>
+                client.name === data.client.name ? { ...client, ...data.client } : client
+              )
+            );
+          } else if (data.type === "new_client") {
+            setClients((prev) => [...prev, data.client]); // Agrega nuevo cliente
+          }
+        });
+    
+        return () => socket.close();
     },[])
 
     const createQueryString = useCallback(

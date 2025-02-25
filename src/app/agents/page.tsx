@@ -5,6 +5,7 @@ import { fetchAgents } from "../../../lib/api/agents";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Table } from "@/components/Table";
 import { AgentFilter } from "../../../lib/models/filter";
+import { createWebSocket } from "../../../lib/ws/socket";
 
 export default function AgentsPage() {
     const [agents, setAgents] = useState<Agent[]>([])
@@ -19,6 +20,18 @@ export default function AgentsPage() {
 
     useEffect(()=>{
         fetchAgents().then(setAgents)
+
+        const socket = createWebSocket((data) => {
+          if (data.type === "agent_update") {
+            setAgents((prev) =>
+              prev.map((agent) =>
+                agent.name === data.agent.name ? { ...agent, ...data.agent } : agent
+              )
+            );
+          }
+        });
+    
+        return () => socket.close();
     },[])
 
     const createQueryString = useCallback(
