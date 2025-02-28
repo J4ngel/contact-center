@@ -1,6 +1,8 @@
 
-export function createWebSocket(onMessage:(data: any) => void) {
-  const socket = new WebSocket(process.env.NEXT_PUBLIC_WEB_SOCKET_URL||'')
+export function createWebSocket(socketName: string, onMessage:(data: any) => void) {
+  const socketURL = `${process.env.NEXT_PUBLIC_WEB_SOCKET_URL}/${socketName}/`
+
+  const socket = new WebSocket(socketURL)
 
   socket.onopen = () => console.log("WebSocket conectado");
   socket.onmessage = (event) => {

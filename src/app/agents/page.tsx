@@ -21,11 +21,11 @@ export default function AgentsPage() {
     useEffect(()=>{
         fetchAgents().then(setAgents)
 
-        const socket = createWebSocket((data) => {
-          if (data.type === "agent_update") {
+        const socket = createWebSocket('agents', (data) => {
+          if (data.data.type === "agent_update") {
             setAgents((prev) =>
               prev.map((agent) =>
-                agent.name === data.agent.name ? { ...agent, ...data.agent } : agent
+                agent.name === data.data.agent.name ? { ...agent, ...data.data.agent } : agent
               )
             );
           }

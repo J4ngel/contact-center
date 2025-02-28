@@ -23,15 +23,15 @@ export default function ClientsPage() {
     useEffect(()=>{
         fetchClients().then(setClients)
 
-        const socket = createWebSocket((data) => {
-          if (data.type === "client_update") {
+        const socket = createWebSocket('clients', (data) => {
+          if (data.data.type === "client_update") {
             setClients((prev) =>
               prev.map((client) =>
-                client.name === data.client.name ? { ...client, ...data.client } : client
+                client.name === data.data.client.name ? { ...client, ...data.data.client } : client
               )
             );
-          } else if (data.type === "new_client") {
-            setClients((prev) => [...prev, data.client]); // Agrega nuevo cliente
+          } else if (data.data.type === "new_client") {
+            setClients((prev) => [...prev, data.data.client]); // Agrega nuevo cliente
           }
         });
     
