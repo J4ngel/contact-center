@@ -1,3 +1,12 @@
+---
+name: Feature request
+about: Suggest an idea for this project
+title: Featute/
+labels: ''
+assignees: ''
+
+---
+
 ### Description of the request
 Please describe the new feature or improvement you would like to see.
 

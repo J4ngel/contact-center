@@ -1,5 +1,11 @@
-### Task description
-Please briefly describe the task to be done.
+---
+name: Task
+about: Please briefly describe the task to be done.
+title: Task/
+labels: ''
+assignees: ''
+
+---
 
 ### Acceptance criteria
 How will we know this task is complete? What needs to happen for the task to be considered finished?
