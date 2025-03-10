@@ -1,4 +1,12 @@
-### Question
+---
+name: Question
+about: Question about this project
+title: Question + Question_name
+labels: ''
+assignees: ''
+
+---
+### Description of the question
 Please write your question or doubt here.
 
 ### Context

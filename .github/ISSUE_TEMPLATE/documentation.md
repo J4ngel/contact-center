@@ -1,3 +1,11 @@
+---
+name: Documentation request
+about: Suggest an documentation for this project
+title: Doc + Doc_name
+labels: ''
+assignees: ''
+
+---
 ### Description of the documentation to be added or improved
 What part of the documentation needs to be improved or added?
 

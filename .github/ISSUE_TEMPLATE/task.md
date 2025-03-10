@@ -1,7 +1,7 @@
 ---
 name: Task
 about: Please briefly describe the task to be done.
-title: Task/
+title: Task + Task_name
 labels: ''
 assignees: ''
 
