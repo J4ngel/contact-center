@@ -1,12 +1,12 @@
 'use client'
 import React, { useCallback, useEffect, useState } from "react";
-import { Client } from "../../../lib/models/client";
-import { fetchClients } from "../../../lib/api/clients";
+import { Client } from "../../lib/models/client";
+import { fetchClients } from "../../lib/api/clients";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Table } from "@/components/Table";
-import { filterOperations } from "../../../lib/constants/operations";
-import { ClientFilter } from "../../../lib/models/filter";
-import { createWebSocket } from "../../../lib/ws/socket";
+import { filterOperations } from "../../lib/constants/operations";
+import { ClientFilter } from "../../lib/models/filter";
+import { createWebSocket } from "../../lib/ws/socket";
 
 export default function ClientsPage() {
     const [clients, setClients] = useState<Client[]>([])
