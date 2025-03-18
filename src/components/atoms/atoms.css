@@ -1,0 +1,57 @@
+/* Buttons */
+.btn {
+  @apply flex h-10 w-fit text-nowrap px-6  border items-center rounded-[20px] text-center
+}
+
+.btn-filled{
+  @apply bg-black
+}
+
+.btn-outlined{
+  @apply bg-black
+}
+
+.btn-text{
+  @apply bg-black
+}
+
+.btn-disabled {
+  @apply bg-black
+}
+
+.btn-error{
+  @apply bg-black
+}
+
+/* Inputs */
+.text-field{
+  @apply h-14 px-4 relative flex flex-col justify-center rounded-lg focus-within:border-blue-500
+}
+
+.text-field-filled{
+  @apply rounded-md rounded-b-none border-b border-black bg-slate-200 focus-within:border-b-2 
+}
+
+.text-field-outlined{
+  @apply border border-gray-400 focus-within:ring-1 focus-within:ring-blue-500
+}
+
+.label-text-field-outlined-focused {
+  @apply -top-3 scale-90 text-blue-500 peer-focus:text-blue-500
+}
+
+.label-text-field-outlined-unfocused {
+  @apply text-gray-500 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-0  peer-focus:scale-90 peer-focus:text-blue-500
+}
+
+.label-text-field-filled-focused {
+  @apply top-0 scale-90 text-blue-500 peer-focus:text-blue-500
+}
+
+.label-text-field-filled-unfocused {
+  @apply text-gray-500 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-0 peer-focus:translate-y-0 peer-focus:scale-90 peer-focus:text-blue-500
+}
+
+.text-field-support-text {
+  @apply px-4 text-sm text-gray-500 mt-1
+}
