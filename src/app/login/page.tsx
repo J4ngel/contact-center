@@ -3,10 +3,10 @@
 import { useState, JSX } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { TextField } from "@/components/atoms/TextField"
+import { IconButton } from "@/components/atoms/IconButton"
 
 export default function LoginPage(): JSX.Element{
-  const [email, setEmail] = useState("meghan.tormund@gmail.com")
-  const [password, setPassword] = useState("••••••••••••••••")
   const [rememberMe, setRememberMe] = useState(false)
 
   return (
@@ -17,13 +17,13 @@ export default function LoginPage(): JSX.Element{
           <div className="flex flex-col justify-between h-full p-8">
             <div className="relative h-full">
               {/* Illustration of person at desk */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center pt-10">
                 <Image
-                  src="/placeholder.svg?height=300&width=300"
+                  src="/login_image.webp"
                   alt="Person working at desk"
-                  width={300}
-                  height={300}
-                  className="z-10"
+                  width={250}
+                  height={250}
+                  className="rounded-s-full rounded-br-full rounded-tr-[40rem] z-10"
                 />
               </div>
 
@@ -66,21 +66,9 @@ export default function LoginPage(): JSX.Element{
               <h2 className="mb-8 text-2xl font-semibold">¡Bienvenido de vuelta!</h2>
 
               <form className="flex flex-col w-full space-y-6 items-center">
-                <div className="w-full">
-                <label className="text-xs uppercase text-gray-500" htmlFor="user">user</label>
-                <input 
-                  id="user"
-                  className="w-[90%] input-type-1" 
-                  type="text"/>
-                </div>
-                
-                <div className="w-full">
-                <label className="text-xs uppercase text-gray-500" htmlFor="psd">password</label>
-                <input 
-                id="psd"
-                  className="w-[90%] input-type-1" 
-                  type="password"/>
-                </div>
+                <TextField placeholder="User" />
+
+                <TextField placeholder="Password" />
 
                 <div className="flex w-full items-center justify-between">
                   <div className="flex items-center space-x-2">
@@ -88,7 +76,7 @@ export default function LoginPage(): JSX.Element{
                       type="checkbox"
                       id="remember"
                       checked={rememberMe}
-                      onChange={(checked) => setRememberMe(!!checked)}
+                      onChange={(checked) => setRememberMe(!rememberMe)}
                     />
                     <label htmlFor="remember" className="text-sm text-gray-600">
                       Remember me
@@ -100,49 +88,33 @@ export default function LoginPage(): JSX.Element{
                   </Link>
                 </div>
 
-                <div className="flex w-full items-center justify-between pt-4">
+                <div className="flex w-full items-center justify-evenly space-x-4 pt-4">
                   <div className="text-sm">
                     No account?{" "}
-                    <Link href="#" className="text-blue-500 hover:underline">
+                    <Link href="/register" className="text-blue-500 hover:underline">
                       Sign up
                     </Link>
                   </div>
 
-                  <button type="submit" className="px-6 bg-blue-500 hover:bg-blue-600">
-                    Sign in '-'
+                  <button type="submit" className="py-1.5 px-3 bg-blue-500 rounded-xl text-white text-sm hover:bg-blue-600">
+                    Sign in ➡️
                   </button>
                 </div>
               </form>
 
               {/* Social sign in options */}
-              <div className="flex flex-col gap-3 mt-12">
-                <button className="flex items-center justify-center w-full gap-2 text-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-red-500"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M8 12h8"></path>
-                    <path d="M12 8v8"></path>
-                  </svg>
-                  Sign in with Google
-                </button>
+              <div className="w-full hidden items-center justify-center gap-2 mt-10 md:flex">
+                <hr className="w-full border-gray-300 rounded-xl"/>
+                <p className="text-xs text-nowrap text-gray-500">Or sign up with</p>
+                <hr className="w-full border-gray-300 rounded xl"/>
+              </div>
 
-                <button className="flex items-center justify-center w-full gap-2 text-sm">
-                  F Sign in with Facebook
-                </button>
-
-                <button className="flex items-center justify-center w-full gap-2 text-sm">
-                  LN Sign in with LinkedIn
-                </button>
+              <div className="flex flex-col justify-between gap-3 md:flex-row mt-12 md:mt-5">
+                <IconButton icon="./google.svg" />
+                
+                <IconButton icon="./facebook.svg" />
+                
+                <IconButton icon="./linkedin.svg" />
               </div>
             </div>
           </div>
