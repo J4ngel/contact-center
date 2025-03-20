@@ -1,26 +1,18 @@
 /* Buttons */
 .btn {
-  @apply flex h-10 w-fit text-nowrap px-6  border items-center rounded-[20px] text-center
+  @apply flex h-10 w-fit text-nowrap px-6  items-center rounded-[20px] text-center
 }
 
 .btn-filled{
-  @apply bg-black
+  @apply bg-blue-500 text-white hover:bg-blue-400
 }
 
 .btn-outlined{
-  @apply bg-black
+  @apply bg-transparent border border-blue-500 text-blue-500
 }
 
 .btn-text{
-  @apply bg-black
-}
-
-.btn-disabled {
-  @apply bg-black
-}
-
-.btn-error{
-  @apply bg-black
+  @apply bg-transparent hover:bg-slate-200 text-blue-500 border-none
 }
 
 /* Inputs */

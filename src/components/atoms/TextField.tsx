@@ -8,8 +8,9 @@ import {
 
   import { clsx } from "clsx";
 
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   ref?: Ref<HTMLInputElement>
+  type?: "text" | "email" | "password"
   variant?: 'filled' |'outlined'
   leadingIcon?: React.ReactNode
   trailingIcon?: React.ReactNode
@@ -20,6 +21,7 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export function TextField({
   ref,
+  type = "text",
   variant = 'filled',
   className,
   placeholder,
@@ -56,7 +58,7 @@ export function TextField({
         <input
           {...props}
           ref={ref}
-          type="text"
+          type={type}
           id={props.id || `inputText-${placeholder}`}
           className="peer w-full bg-transparent text-gray-900 outline-none focus:ring-0 "
           placeholder=" "

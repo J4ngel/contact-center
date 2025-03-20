@@ -26,6 +26,9 @@ export function Button({
       className,
       "btn",
       {
+        "btn-filled": variant === "filled",
+        "btn-outlined": variant === "outlined",
+        "btn-text": variant === "text",
         'gap-2': icon!=undefined,
         'pl-4 pr-6':icon!==undefined && iconLeftSide,
         'pl-6 pr-4 flex-row-reverse':icon!==undefined && !iconLeftSide,
