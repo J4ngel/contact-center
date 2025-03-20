@@ -9,7 +9,7 @@ import { JSX, useState } from "react";
 export default function RegisterPage(): JSX.Element{
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-100">
+    <div className="flex items-center justify-center min-h-screen bg-slate-200">
       <div className="flex w-full max-w-4xl overflow-hidden rounded-3xl shadow-lg bg-gradient-to-b from-50% from-white to-blue-500 to-50% ">
         {/* Left side - Blue background with illustration */}
         <div className="relative hidden w-1/2 bg-blue-500 rounded-tr-[2.5rem] md:block">
@@ -98,7 +98,7 @@ export default function RegisterPage(): JSX.Element{
                 </div>
 
                 <div className="flex w-full justify-evenly">
-                  <Button label="Volver" />
+                  <Button variant="outlined" label="Volver" />
                   <Button label="Registrar" />
                 </div>
               </form>
