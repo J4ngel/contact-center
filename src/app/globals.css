@@ -1,3 +1,5 @@
+@import '../components/atoms/atoms.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,8 +20,4 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-input, select {
-  @apply border rounded-md p-1
 }

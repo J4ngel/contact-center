@@ -1,11 +1,11 @@
 'use client'
 import { useCallback, useEffect, useState } from "react";
-import { Agent, statusAgent } from "../../../lib/models/agent";
-import { fetchAgents } from "../../../lib/api/agents";
+import { Agent, statusAgent } from "../../lib/models/agent";
+import { fetchAgents } from "../../lib/api/agents";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { Table } from "@/components/Table";
-import { AgentFilter } from "../../../lib/models/filter";
-import { createWebSocket } from "../../../lib/ws/socket";
+import { Table } from "@/components/atoms/Table";
+import { AgentFilter } from "../../lib/models/filter";
+import { createWebSocket } from "../../lib/ws/socket";
 
 export default function AgentsPage() {
     const [agents, setAgents] = useState<Agent[]>([])
